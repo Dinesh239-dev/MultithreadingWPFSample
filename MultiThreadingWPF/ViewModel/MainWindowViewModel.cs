@@ -25,7 +25,7 @@
         private bool _isSelected;
         public ICommand StartButtonCommand { get; set; }
         public ICommand AddTaskCommand { get; set; }
-
+        private int taskCount;
         public TaskModel TasksModel
         {
             get { return __taskModel; }
@@ -75,6 +75,11 @@
             set { _isSelected = value; RaisePropertyChanged(); }
         }
         
+        public int TaskCount
+        {
+            get { return taskCount; }
+            set { taskCount = value; RaisePropertyChanged(); }
+        }
         public MainWindowViewModel()
         {
             TasksModel = new TaskModel(); 
@@ -95,10 +100,11 @@
             }
         }
 
-        private void TaskExecutionOrder()
+        public void TaskExecutionOrder()
         {
             queue.Enqueue(OddNumbers);
             queue.Enqueue(EvenNumbers);
+            taskCount = queue.Count;
         }
 
         private async void ExecuteTasks()

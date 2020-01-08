@@ -23,6 +23,19 @@
             sut.ShouldNotBeNull();
             
         }
+        [TestMethod]
+        public void MainWindowViewModel_WhenStartButtonClicked_ExecuteMethod()
+        {
+            // Arrange
+            var sut = this.Create();
+
+            // Act
+            sut.TaskExecutionOrder();
+
+            // Arrange
+            sut.TaskCount.ShouldBeGreaterThan(0);
+
+        }
         
         private MainWindowViewModel Create()
         {
