@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        
+        mc:Ignorable="d"
+        Title="Task Execution"
+        Height="450" Background="Gray"
+        Width="800">
+    <Grid>
+        <TextBox x:Name="Task" 
+                HorizontalAlignment="Left"
+                 Height="399"
+                 Margin="156,10,0,0" 
+                 TextWrapping="Wrap"
+                 ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 Text="{Binding PrintNumbers,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="700"  />
+
+        <Button Content="Start Task"  Height="29"
+                HorizontalAlignment="Left"
+                Margin="31,30,0,0" 
+                VerticalAlignment="Top"
+                Width="99" Command="{Binding StartButtonCommand}"
+                />
+
+        <RadioButton x:Name="chckOddNum" Content="OddNumbers" HorizontalAlignment="Left" Margin="38,228,0,0" VerticalAlignment="Top"  
+                  IsChecked="{Binding IsOddChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+        <RadioButton x:Name="chckEvenNum" Content="EvenNumbers" HorizontalAlignment="Left" 
+                  Margin="38,271,0,0" VerticalAlignment="Top" 
+                  IsChecked="{Binding IsEvenChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Button Content="Add Task"  Height="29"
+            HorizontalAlignment="Left"
+            Margin="38,307,0,0" 
+            VerticalAlignment="Top"
+            Width="82"
+            Command="{Binding AddTaskCommand}"/>
+        <TextBox HorizontalAlignment="Left" Height="101" 
+                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="31,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" 
+                 Text="{Binding ExecutionOrder,UpdateSourceTrigger=PropertyChanged}"/>
+    </Grid>
+</Window>
