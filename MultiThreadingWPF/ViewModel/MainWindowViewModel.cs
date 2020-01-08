@@ -75,7 +75,6 @@
             set { _isSelected = value; RaisePropertyChanged(); }
         }
         
-
         public MainWindowViewModel()
         {
             TasksModel = new TaskModel(); 
@@ -104,7 +103,6 @@
 
         private async void ExecuteTasks()
         {
-            printNumbers = "Service Started - Q Count: " + queue.Count;
             while (true)
             {
                 Action task = null;
