@@ -96,11 +96,10 @@
             }
         }
 
-        public void TaskExecutionOrder()
+        private void TaskExecutionOrder()
         {
             queue.Enqueue(OddNumbers);
             queue.Enqueue(EvenNumbers);
-            
         }
 
         private async void ExecuteTasks()
