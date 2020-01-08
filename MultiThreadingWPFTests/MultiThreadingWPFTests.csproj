@@ -65,7 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WPFTaskSample\MultiThreadingWPF.csproj">
+    <ProjectReference Include="..\MultiThreadingWPF\MultiThreadingWPF.csproj">
       <Project>{82A46304-2FFC-417B-BB65-15EDB59C128D}</Project>
       <Name>MultiThreadingWPF</Name>
     </ProjectReference>
