@@ -19,7 +19,7 @@
                  ScrollViewer.VerticalScrollBarVisibility="Auto"
                  Text="{Binding PrintNumbers,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                  VerticalAlignment="Top"
-                 Width="700"  />
+                 Width="626"  />
 
         <Button Content="Start Task"  Height="29"
                 HorizontalAlignment="Left"
