@@ -22,9 +22,10 @@
         private string executionOrder;
         private bool isOddChecked;
         private bool isEvenChecked;
-        private bool _isSelected;
+        
         public ICommand StartButtonCommand { get; set; }
         public ICommand AddTaskCommand { get; set; }
+        public ICommand ClearAllData { get; set; }
         private int taskCount;
         public TaskModel TasksModel
         {
@@ -68,23 +69,19 @@
                 RaisePropertyChanged();
             }
         }
-        
-        public bool IsSelected
-        {
-            get { return _isSelected; }
-            set { _isSelected = value; RaisePropertyChanged(); }
-        }
-        
+       
         public int TaskCount
         {
             get { return taskCount; }
             set { taskCount = value; RaisePropertyChanged(); }
         }
-        public MainWindowViewModel()
+
+          public MainWindowViewModel()
         {
             TasksModel = new TaskModel(); 
             StartButtonCommand = new DelegateCommand(TaskExecutionOrder);
             AddTaskCommand = new DelegateCommand(SelectedTaskExecution);
+            ClearAllData = new DelegateCommand(ClearData);
             Task.Run(() => ExecuteTasks());
         }
       
@@ -92,11 +89,15 @@
         {
             if(isEvenChecked)
             {
-                EvenNumbers();
+                Task.Run(()=>EvenNumbers());
             }
             else if(isOddChecked)
             {
-                OddNumbers();
+                Task.Run(()=>OddNumbers());
+            }
+            else
+            {
+                this.PrintNumbers += "Please select any one Task to be executed"+"\n"; 
             }
         }
 
@@ -109,6 +110,7 @@
 
         private async void ExecuteTasks()
         {
+            
             while (true)
             {
                 Action task = null;
@@ -190,6 +192,12 @@
                 taskNumber++;
                 Thread.Sleep(1000);
             
+        }
+
+        private void ClearData()
+        {
+            PrintNumbers = string.Empty;
+           
         }
        
     }

@@ -7,42 +7,50 @@
         
         mc:Ignorable="d"
         Title="Task Execution"
-        Height="450" Background="Gray"
-        Width="800">
+        Height="700" Background="Gray"
+        Width="1000">
     <Grid>
-        <TextBox x:Name="Task" 
-                HorizontalAlignment="Left"
-                 Height="399"
-                 Margin="156,10,0,0" 
-                 TextWrapping="Wrap"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="739*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="Execution" HorizontalAlignment="Right"
+                 Height="649" Margin="0,10,10,0" TextWrapping="Wrap"
                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
                  ScrollViewer.VerticalScrollBarVisibility="Auto"
-                 Text="{Binding PrintNumbers,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 VerticalAlignment="Top"
-                 Width="626"  />
+                 Text="{Binding PrintNumbers,Mode=TwoWay,
+                 UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top" Width="692" Grid.Column="1" />
 
-        <Button Content="Start Task"  Height="29"
-                HorizontalAlignment="Left"
-                Margin="31,30,0,0" 
+        <Button Content="Start Task"  Height="36"
+                Margin="10,30,797,0" 
                 VerticalAlignment="Top"
-                Width="99" Command="{Binding StartButtonCommand}"
-                />
+                Width="119" Command="{Binding StartButtonCommand}" Grid.Column="1"/>
 
-        <RadioButton x:Name="chckOddNum" Content="OddNumbers" HorizontalAlignment="Left" Margin="38,228,0,0" VerticalAlignment="Top"  
-                  IsChecked="{Binding IsOddChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton x:Name="chckOddNum" Content="OddNumbers" 
+                     HorizontalAlignment="Left" Margin="10,413,0,0" 
+                     VerticalAlignment="Top"  
+                     IsChecked="{Binding IsOddChecked,Mode=TwoWay,
+                     UpdateSourceTrigger=PropertyChanged}" Height="44" Width="119" RenderTransformOrigin="1,0.546" Grid.Column="1"/>
 
-        <RadioButton x:Name="chckEvenNum" Content="EvenNumbers" HorizontalAlignment="Left" 
-                  Margin="38,271,0,0" VerticalAlignment="Top" 
-                  IsChecked="{Binding IsEvenChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton x:Name="chckEvenNum" Content="EvenNumbers" 
+                     HorizontalAlignment="Left" Margin="10,462,0,0" 
+                     VerticalAlignment="Top" IsChecked="{Binding IsEvenChecked,
+                     Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="42" Width="119" Grid.Column="1"/>
 
-        <Button Content="Add Task"  Height="29"
-            HorizontalAlignment="Left"
-            Margin="38,307,0,0" 
-            VerticalAlignment="Top"
-            Width="82"
-            Command="{Binding AddTaskCommand}"/>
-        <TextBox HorizontalAlignment="Left" Height="101" 
-                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="31,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" 
-                 Text="{Binding ExecutionOrder,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Add Task"  Height="31" HorizontalAlignment="Left"
+            Margin="10,543,0,0" VerticalAlignment="Top" Width="119"
+            Command="{Binding AddTaskCommand}" Grid.Column="1"/>
+
+        <TextBox HorizontalAlignment="Left" Height="296" 
+                 VerticalScrollBarVisibility="Auto" 
+                 HorizontalScrollBarVisibility="Auto" Margin="31,88,0,0" 
+                 VerticalAlignment="Top" Width="216" 
+                 Text="{Binding ExecutionOrder,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+
+        <Button Content="ClearAll" HorizontalAlignment="Left" Margin="10,604,0,0" 
+                VerticalAlignment="Top" Command="{Binding ClearAllData,
+                UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Width="119" 
+                Height="30" Grid.Column="1"/>
     </Grid>
 </Window>
